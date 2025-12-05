@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Student Database — Full</title>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<div class="container">
+<h1>Student Database (Full)</h1>
+
+
+<!-- Authentication check removed for brevity; keep login.html as gate -->
+
+
+<div class="form-section">
+<input id="s_id" type="text" placeholder="Student ID (auto if empty)" />
+<input id="name" type="text" placeholder="Full Name" />
+<input id="reg" type="text" placeholder="Register Number" />
+<input id="dept" type="text" placeholder="Department" />
+<input id="course" type="text" placeholder="Course" />
+<input id="year" type="number" placeholder="Year" />
+<input id="sem" type="number" placeholder="Semester" />
+<input id="gender" type="text" placeholder="Gender" />
+<input id="blood" type="text" placeholder="Blood Group" />
+<input id="dob" type="date" placeholder="DOB" />
+</div>
+
+
+<h3>Family Details</h3>
+<div class="form-section">
+<input id="father_name" type="text" placeholder="Father Name" />
+<input id="father_occ" type="text" placeholder="Father Occupation" />
+<input id="father_qual" type="text" placeholder="Father Qualification" />
+
+
+<input id="mother_name" type="text" placeholder="Mother Name" />
+<input id="mother_occ" type="text" placeholder="Mother Occupation" />
+<input id="mother_qual" type="text" placeholder="Mother Qualification" />
+</div>
+
+
+<h3>Siblings (comma-separated: name|age|occupation|relation)</h3>
+<div class="form-section">
+<input id="siblings" type="text" placeholder="e.g. Ram|18|Student|Brother, Sita|15|Student|Sister" />
+</div>
+
+
+<h3>Marks Input (Simplified)</h3>
+<div class="form-section">
+<input id="marks_subjects" type="text" placeholder="Subjects CSV e.g. Thermo,Fluid,Maths" />
+<input id="marks_internals" type="text" placeholder="Internal marks per subject comma e.g. 45,41,39" />
+<input id="marks_externals" type="text" placeholder="External marks per subject comma e.g. 80,75,70" />
+</div>
+
+
+<div style="display:flex; gap:10px; justify-content:center; margin-top:10px;">
+<button onclick="addOrUpdateStudent()" id="submitBtn">Add Student</button>
+<button onclick="generateSample(200)">Generate 200 Sample Students</button>
+<button onclick="exportAllJSON()">Export JSON</button>
+<input type="file" id="importFile" onchange="importJSON(event)" />
+</div>
+
+
+<input id="search" type="text" placeholder="Search student..." onkeyup="searchStudent()" style="margin-top:15px;" />
+
+
+<h2>Student List</h2>
+<table>
+<thead>
+<tr>
+<th>Student ID</th>
+<th>Name</th>
+<th>Reg No</th>
+<th>Dept</th>
+<th>Year/Sem</th>
+<th>Actions</th>
+</tr>
+</thead>
+<tbody id="studentTable"></tbody>
+</table>
+</div>
+
+
+</html>
